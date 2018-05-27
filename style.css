@@ -171,6 +171,10 @@ pre{
 		font-size: 10px;
 		text-align: center;
 	}
+	.barangskecila{
+		font-size: 5px;
+		text-align: center;
+	}
 	.mid-sm{
 		text-align: center;
 	}
@@ -198,6 +202,9 @@ pre{
 	}
 	.barangskecil{
 		font-size: 24px;
+	}
+	.barangskecila{
+		font-size: 18px;
 	}
 }
 
