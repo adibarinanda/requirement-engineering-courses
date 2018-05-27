@@ -1,0 +1,858 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <link href="ionicons-2.0.1/css/ionicons.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <title>SI HMTC</title>
+  </head>
+  <body>
+    <!-- modal -->
+    <div class="modal fade" id="tambahAnggota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Tambah Anggota</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="#" onsubmit="return tambahAnggota()" class="needs-validation" id="tambang">
+              <div class="form-group">
+                <label for="NRP">NRP</label>
+                <input type="text" class="form-control NRP" id="NRP1" aria-describedby="NRPHelp" placeholder="Masukkan NRP" required pattern="\d*">
+                <div class="invalid-feedback">
+                  NRP Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="Nama">Nama</label>
+                <input type="text" class="form-control" id="Nama" aria-describedby="NamaHelp" placeholder="Masukkan Nama" required>
+                <div class="invalid-feedback">
+                  Nama Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="NRP">No. HP</label>
+                <input type="text" class="form-control" id="nohp1" aria-describedby="noHPHelp" placeholder="Masukkan No. HP" required pattern="\d*">
+                <div class="invalid-feedback">
+                  No. HP Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="NRP">Angkatan</label>
+                <input type="text" class="form-control" id="Angkatan" aria-describedby="AngkatanHelp" placeholder="Masukkan Angkatan" required>
+                <div class="invalid-feedback">
+                  Angkatan Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="NRP">ID Line</label>
+                <input type="text" class="form-control" id="IDLine" aria-describedby="IDLineHelp" placeholder="Masukkan ID Line" required>
+                <div class="invalid-feedback">
+                  ID Line Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="NRP">Alamat</label>
+                <input type="text" class="form-control" id="Alamat" aria-describedby="AlamatHelp" placeholder="Masukkan Alamat" required>
+                <div class="invalid-feedback">
+                  Alamat Tidak boleh kosong!
+                </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeanggota">Close</button>
+            <button type="submit" class="btn btn-primary" id="submitanggota">Submit</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!--End modal tambah-->
+    <!---Modal Ganti Password-->
+     <div class="modal fade" id="gantipass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" style="cursor:pointer;" id="exampleModalLabel">Ganti Password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form onsubmit="window.alert('Password sudah diganti')" class="needs-validation" action="anggota.html">
+              <div class="form-group">
+                <input type="password" class="form-control" aria-describedby="NRPHelp" placeholder="Masukan Password Lama" required>
+                <div class="invalid-feedback">
+                 Form Password Lama tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <input id="passlama" type="password" class="form-control" id="Nama" aria-describedby="NamaHelp" placeholder="Masukkan Password Baru" required>
+                <div class="invalid-feedback">
+                  Form Password Baru tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" oninput="check(this);" id="passulang" aria-describedby="AngkatanHelp" placeholder="Ulangi Password Baru" required>
+                <div class="invalid-feedback">
+                  Form Ulangi password tidak boleh kosong
+                </div>
+              </div>
+              <script language='javascript' type='text/javascript'>
+                  function check(input) {
+                      console.log('run');
+                      if (input.value != document.getElementById('passlama').value) {
+                        input.setCustomValidity('Password tidak cocok');
+                      }else if(input.validity.valueMissing){
+                        input.setCustomValidity('Field tidak boleh kosong');  
+                          // input is valid -- reset the error message
+                      }else{
+                        input.setCustomValidity('');
+                      }
+                  }
+              </script>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="editAnggota1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit Anggota</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="form1" action="#" onsubmit="return editdata('data1','form1','closeEdit1')">
+              <div class="form-group">
+                <label for="NRP">NRP</label>
+                <input value="05111540000103" type="text" class="form-control" id="NRP2" aria-describedby="NRPHelp" placeholder="Masukkan NRP" required pattern="\d*">
+                <div class="invalid-feedback">
+                  NRP Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="Nama">Nama</label>
+                <input value="Prana Cahya" type="text" class="form-control" id="Nama2" aria-describedby="NamaHelp" placeholder="Masukkan Nama"required>
+                <div class="invalid-feedback">
+                  Nama Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="No.HP">No. HP</label>
+                <input value="088888887777" type="text" class="form-control" id="nohp2" aria-describedby="noHPHelp" placeholder="Masukkan No. HP" required pattern="\d*">
+                <div class="invalid-feedback">
+                  No. HP Tidak boleh kosong!
+                </div>
+              </div>
+               <div class="form-group">
+                <label for="Angkatan">Angkatan</label>
+                <input value="2015" type="text" class="form-control" id="Angkatan2" aria-describedby="AngkatanHelp" placeholder="Masukkan Angkatan" required>
+                <div class="invalid-feedback">
+                  Angkatan Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="IDLine">ID Line</label>
+                <input value="prans" type="text" class="form-control" id="IDLine2" aria-describedby="IDLineHelp" placeholder="Masukkan ID Line" required>
+                <div class="invalid-feedback">
+                  ID Line Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="Alamat">Alamat</label>
+                <input value="Jl. Sukadamai 218" type="text" class="form-control" id="Alamat2" aria-describedby="AlamatHelp" placeholder="Masukkan Alamat" required>
+                <div class="invalid-feedback">
+                  Alamat Tidak boleh kosong!
+                </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeEdit1">Close</button>
+            <button type="submit" class="btn btn-primary" id="btnEditAnggota">Submit</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+     <div class="modal fade" id="editAnggota2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit Anggota</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="form2" action="#" onsubmit="return editdata('data2','form2','closeEdit2')">
+              <div class="form-group">
+                <label for="NRP">NRP</label>
+                <input value="05111540000109" type="text" class="form-control" id="NRP2" aria-describedby="NRPHelp" placeholder="Masukkan NRP" required pattern="\d*">
+                <div class="invalid-feedback">
+                  NRP Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="Nama">Nama</label>
+                <input value="Rezky Alamsyah" type="text" class="form-control" id="Nama2" aria-describedby="NamaHelp" placeholder="Masukkan Nama"required>
+                <div class="invalid-feedback">
+                  Nama Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="Angkatan">Angkatan</label>
+                <input value="2015" type="text" class="form-control" id="Angkatan2" aria-describedby="AngkatanHelp" placeholder="Masukkan Angkatan" required>
+                <div class="invalid-feedback">
+                  Angkatan Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="No.HP">No. HP</label>
+                <input value="085718246369" type="text" class="form-control" id="nohp2" aria-describedby="noHPHelp" placeholder="Masukkan No. HP" required pattern="\d*">
+                <div class="invalid-feedback">
+                  No. HP Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="IDLine">ID Line</label>
+                <input value="rezkyal97" type="text" class="form-control" id="IDLine2" aria-describedby="IDLineHelp" placeholder="Masukkan ID Line" required>
+                <div class="invalid-feedback">
+                  ID Line Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="Alamat">Alamat</label>
+                <input value="Jl. Sumber Rejo 1 RT 35 No. 06" type="text" class="form-control" id="Alamat2" aria-describedby="AlamatHelp" placeholder="Masukkan Alamat" required>
+                <div class="invalid-feedback">
+                  Alamat Tidak boleh kosong!
+                </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeEdit2">Close</button>
+            <button type="submit" class="btn btn-primary" id="btnEditAnggota">Submit</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+ <div class="modal fade" id="editAnggota3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Edit Anggota</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="form3" action="#" onsubmit="return editdata('data3','form3','closeEdit3')">
+              <div class="form-group">
+                <label for="NRP">NRP</label>
+                <input value="05111540000120" type="text" class="form-control" id="NRP2" aria-describedby="NRPHelp" placeholder="Masukkan NRP" required pattern="\d*">
+                <div class="invalid-feedback">
+                  NRP Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="Nama">Nama</label>
+                <input value="Iqbal Mabruri" type="text" class="form-control" id="Nama2" aria-describedby="NamaHelp" placeholder="Masukkan Nama"required>
+                <div class="invalid-feedback">
+                  Nama Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="Angkatan">Angkatan</label>
+                <input value="2015" type="text" class="form-control" id="Angkatan2" aria-describedby="AngkatanHelp" placeholder="Masukkan Angkatan" required>
+                <div class="invalid-feedback">
+                  Angkatan Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="No.HP">No. HP</label>
+                <input value="088888888888" type="text" class="form-control" id="nohp2" aria-describedby="noHPHelp" placeholder="Masukkan No. HP" required pattern="\d*">
+                <div class="invalid-feedback">
+                  No. HP Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="IDLine">ID Line</label>
+                <input value="Iqbal21" type="text" class="form-control" id="IDLine2" aria-describedby="IDLineHelp" placeholder="Masukkan ID Line" required>
+                <div class="invalid-feedback">
+                  ID Line Tidak boleh kosong!
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="Alamat">Alamat</label>
+                <input value="Sumberejo 1" type="text" class="form-control" id="Alamat2" aria-describedby="AlamatHelp" placeholder="Masukkan Alamat" required>
+                <div class="invalid-feedback">
+                  Alamat Tidak boleh kosong!
+                </div>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="closeEdit3">Close</button>
+            <button type="submit" class="btn btn-primary" id="btnEditAnggota">Submit</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="deleteAnggota1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Hapus data Anggota</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Hapus data milik <strong>Prana Cahya (05111540000103)?</strong>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-danger" data-dismiss="modal" onclick="return hapusAnggota('data1')">Hapus</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="deleteAnggota2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Hapus data Anggota</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Hapus data milik <strong>Rezky Alamsyah (05111540000109)?</strong>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-danger" data-dismiss="modal" onclick="return hapusAnggota('data2')">Hapus</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="deleteAnggota3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Hapus data Anggota</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Hapus data milik <strong>Iqbal Mabruri (05111540000120)?</strong>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" data-dismiss="modal" onclick="return hapusAnggota('data3')" class="btn btn-danger">Hapus</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="nonaktifAnggota1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nonaktikan data Anggota</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Nonaktifkan data milik <strong>Prana Cahya (05111540000103)?</strong>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" onclick="return kunciAkun('lockanggota1','#aktifAnggota1', 'data1')" class="btn btn-danger" id="btnnonaktif" data-dismiss="modal">Nonaktifkan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+     <div class="modal fade" id="aktifAnggota1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Aktifkan data Anggota</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Aktifkan data milik <strong>Prana Cahya (05111540000103)?</strong>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" onclick="bukaAkun('lockanggota1','#nonaktifAnggota1', 'data1')" class="btn btn-primary" id="btnaktif" data-dismiss="modal">Aktifkan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="nonaktifAnggota2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nonaktikan data Anggota</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Nonaktifkan data milik <strong>Rezky Alamsyah(05111540000109)?</strong>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" onclick="return kunciAkun('lockanggota2','#aktifAnggota2','data2')" class="btn btn-danger" id="btnnonaktif" data-dismiss="modal">Nonaktifkan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="aktifAnggota2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Aktifkan data Anggota</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Aktifkan data milik <strong>Rezky Alamsyah (05111540000109)?</strong>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" onclick="bukaAkun('lockanggota2','#nonaktifAnggota2','data2')" class="btn btn-primary" id="btnaktif" data-dismiss="modal">Aktifkan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="nonaktifAnggota3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nonaktikan data Anggota</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Nonaktifkan data milik <strong>Iqbal Mabruri(05111540000120)?</strong>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" onclick="return kunciAkun('lockanggota3','#aktifAnggota3','data3')" class="btn btn-danger" id="btnnonaktif" data-dismiss="modal">Nonaktifkan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="aktifAnggota3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Aktifkan data Anggota</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Aktifkan data milik <strong>Iqbal Mabruri (05111540000120)?</strong>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" onclick="bukaAkun('lockanggota3','#nonaktifAnggota3', 'data3')" class="btn btn-primary" id="btnaktif" data-dismiss="modal">Aktifkan</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="resetAnggota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Reset password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Reset password milik <strong>Rezky Alamsyah (05111540000109)?</strong>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-warning white" data-dismiss="modal" onclick="window.alert('Password berhasil direset!')">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="resetAnggota2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Reset password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Reset password milik <strong>Prana Cahya (05111540000103)?</strong>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-warning white" data-dismiss="modal" onclick="window.alert('Password berhasil direset!')">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="resetAnggota3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Reset password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Reset password milik <strong>Iqbal Mabruri (05111540000120)?</strong>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-warning white" data-dismiss="modal" onclick="window.alert('Password berhasil direset!')">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Header -->
+    <div class="container pt-lg-1 py-1 px-1">
+    <nav class="navbar navbar-expand-lg">
+      <a class="navbar-brand color2" href="anggota.html">SI HMTC</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="ion-navicon-round color2"></span>
+      </button>
+
+      <div class="collapse navbar-collapse pr-4" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link active color2" href="anggota.html"><b>Anggota</b><span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link color2" href="barang.html">Barang</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link color2" href="transaksi.html">Transaksi</a>
+          </li>
+        </ul>
+        <div class="nav-item dropdown my-2 my-lg-0 mr-2 not-arrow">
+          <a class="btn bgcolor2 dropdown-toggle" href="#" role="button" id="notifDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="oi oi-bell white"></span>
+            <span class="badge badge-light">6</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right notif" aria-labelledby="navbarDropdown">
+            <div class="dropdown-item">
+              <div>
+                <strong>Rezky Alamsyah : Infocus</strong> <br/>
+                Waktu pinjam : 24-04-18 s/d 25-04-18 <br/>
+                Jaminan      : KTM
+              </div>
+              <div>
+                <button type="button" class="btn btn-primary" onclick="accept(this)">Terima</button>
+                <button type="button" class="btn btn-danger" >Tolak</button>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-item">
+              <div>
+                <strong>Rezky Alamsyah : Infocus</strong> <br/>
+                Waktu pinjam : 24-04-18 s/d 25-04-18 <br/>
+                Jaminan      : KTM
+              </div>
+              <div>
+                <button type="button" class="btn btn-primary">Terima</button>
+                <button type="button" class="btn btn-danger">Tolak</button>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-item">
+              <div>
+                <strong>Rezky Alamsyah : Infocus</strong> <br/>
+                Waktu pinjam : 24-04-18 s/d 25-04-18 <br/>
+                Jaminan      : KTM
+              </div>
+              <div>
+                <button type="button" class="btn btn-primary">Terima</button>
+                <button type="button" class="btn btn-danger">Tolak</button>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-item">
+              <div>
+                <strong>Rezky Alamsyah : Infocus</strong> <br/>
+                Waktu pinjam : 24-04-18 s/d 25-04-18 <br/>
+                Jaminan      : KTM
+              </div>
+              <div>
+                <button type="button" class="btn btn-primary">Terima</button>
+                <button type="button" class="btn btn-danger">Tolak</button>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-item">
+              <div>
+                <strong>Rezky Alamsyah : Infocus</strong> <br/>
+                Waktu pinjam : 24-04-18 s/d 25-04-18 <br/>
+                Jaminan      : KTM
+              </div>
+              <div>
+                <button type="button" class="btn btn-primary">Terima</button>
+                <button type="button" class="btn btn-danger">Tolak</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item dropdown my-2 my-sm-0" style="margin-left: 12px">
+          <a class="btn bgcolor2 dropdown-toggle" href="#" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#gantipass">Ganti Password</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="logout.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+    <!-- End Header -->
+    <!-- Search Bar -->
+    <div class="searchBg">
+      <div>
+        <div class="container pt-lg-5 my-2 py-1 px-4">
+          <div class="row">
+            <div class="container align-items-center">
+              <h4 class="white lato">Daftar Anggota</h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="container col align-items-center">
+              <form class="row form-inline my-2 my-lg-0 mx-1 justify-content-between">
+                <input class="col-lg-8 col-sm-12 form-control pr-xl-2" id='search' type="search" placeholder="Search" aria-label="Search">
+                <select class="col-lg-3 col-sm-8 form-control" id="selectFilter">
+                  <option value="nama">Nama</option>
+                  <option value="nrp">NRP</option>
+                  <option value="nohp">No. HP</option>
+                </select>
+                <div class="col-lg-1 col-sm-4">
+                  <button class="btn color1 my-2 my-sm-0" type="submit" onclick="return anggotaSearch()">Search</button> 
+                </div>
+              </form>
+            </div>  
+          </div>
+          <div class="container mt-lg-2 my-1 py-1 px-4">
+          </div>
+        </div>
+      </div>
+      <!-- End Search Bar -->
+      <div class="container mt-lg-2 py-2 px-4  bg-light">
+        <div class="container mt-lg-2 py-2 px-4 bg-light">
+         <div class="container">
+           <div class="row">
+             <select class="col-lg-3 col-sm-8 form-control" id="sortFilter"> 
+                <option value="nrp">NRP</option> 
+                <option value="nama">Nama</option> 
+                <option value="nohp">No.HP</option> 
+                <option value="status">Status</option> 
+              </select> 
+              <button class="btn color1" style="margin-left: 5px;" onclick="sortTableAnggota()">Sort</button>
+           </div> 
+         </div>
+        </div>
+        <div class="container mt-lg-2 my-1 py-1 px-4">
+          <div class="container">
+            <div class="row justify-content-between">
+              <div>
+               <button class=" btn btn-info my-2 my-sm-0" data-toggle="modal" data-target="#tambahAnggota"><span class="ion-android-person-add"></span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="notfound" class="row hidden">
+          <div class="container jumbotron">
+            <h3 style="text-align: center">Data tidak ditemukan</h3>
+          </div>
+        </div>
+        <div class="container mt-lg-2 py-2 px-4 bg-light" style="overflow: auto;">
+          <table class="table" id="tables" >
+          <thead class="thead-cust">
+            <tr>
+              <th scope="col">NRP</th>
+              <th scope="col">Nama</th>
+              <th scope="col">Angkatan</th>
+              <th scope="col">No.HP</th>
+              <th scope="col">ID Line</th>
+              <th scope="col">Alamat</th>
+              <th scope="col">Status</th>
+              <th scope="col">Menu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="dataanggota" id="data1" nama="Prana Cahya" nrp="05111540000103" nohp="088888888888" angkatan="2015" idline="prans" alamat="Jl. Sukadamai 218" status="Aktif">
+              <td class="table-success">05111540000103</td>
+              <td class="table-success">Prana Cahya</td>            
+              <td class="table-success">2015</td>
+              <td class="table-success">088888887777</td>
+              <td class="table-success">prans</td>
+              <td class="table-success">Jl. Sukadamai 218</td>
+              <td class="table-success">Aktif</td>
+              <td class="table-success">
+                <button class=" btn btn-info my-2" data-toggle="modal" data-target="#editAnggota1"><span class="oi oi-pencil"></span></button>
+                <button class=" btn btn-danger my-2" data-toggle="modal" data-target="#deleteAnggota1"><span class="oi oi-circle-x"></span></button>
+                <button class="white btn btn-secondary my-2" data-toggle="modal" data-target="#nonaktifAnggota1"><span id="lockanggota1" class="oi oi-lock-locked"></span></button>
+                <button class="white btn btn-warning my-2" data-toggle="modal" data-target="#resetAnggota2">Reset</button>
+              </td>
+            </tr>
+            <tr class="dataanggota" id="data2" nama="Rezky Alamsyah" nrp="05111540000109" nohp="085718246369" status="Nonaktif">
+              <td class="table-warning">05111540000109</td>
+              <td class="table-warning">Rezky Alamsyah</td>
+              <td class="table-warning">2015</td>
+              <td class="table-warning">085718246369</td>
+              <td class="table-warning">rezkyal97</td>
+              <td class="table-warning">Jl. Sumber Rejo 1 RT 35 No. 06</td>
+              <td class="table-warning">Nonaktif</td>
+              <td class="table-warning">
+                <button class=" btn btn-info my-2" data-toggle="modal" data-target="#editAnggota2"><span class="oi oi-pencil"></span></button>
+                <button class=" btn btn-danger my-2" data-toggle="modal" data-target="#deleteAnggota2"><span class="oi oi-circle-x"></span></button>
+                <button class="white btn btn-secondary my-2" data-toggle="modal" data-target="#aktifAnggota2"><span id="lockanggota2" class="oi oi-lock-unlocked"></span></button>
+                <button class="white btn btn-warning my-2" data-toggle="modal" data-target="#resetAnggota1">Reset</button>
+              </td>
+            </tr>
+            <tr class="dataanggota" id="data3" nama="Iqbal Mabruri" nrp="05111540000120" nohp="088888888888" status="Aktif">
+              <td class="table-success">05111540000120</td>
+              <td class="table-success">Iqbal Mabruri</td> 
+              <td class="table-success">2015</td>           
+              <td class="table-success">088888888888</td>
+              <td class="table-success">Iqbal21</td>
+              <td class="table-success">Sumberejo 1</td>
+              <td class="table-success">Aktif</td>
+              <td class="table-success">
+                <button class=" btn btn-info my-2" data-toggle="modal" data-target="#editAnggota3"><span class="oi oi-pencil"></span></button>
+                <button class=" btn btn-danger my-2" data-toggle="modal" data-target="#deleteAnggota3"><span class="oi oi-circle-x"></span></button>
+                <button class="white btn btn-secondary my-2" data-toggle="modal" data-target="#nonaktifAnggota3"><span class="oi oi-lock-locked" id="lockanggota3"></span></button>
+                <button class="white btn btn-warning my-2" data-toggle="modal" data-target="#resetAnggota3">Reset</button>
+              </td>
+            </tr>
+          </tbody>
+          </table>
+          <div>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item disabled"><a class="page-cust" id="prev" onclick="goprev()">Previous</a></li>
+                <li class="page-item active act"><a class="page-cust pages" onclick="go(this)" page="1">1</a></li>
+                <li class="page-item"><a class="page-cust pages" onclick="go(this)" page="2">2</a></li>
+                <li class="page-item"><a class="page-cust pages" onclick="go(this)" page="3">3</a></li>
+                <li class="page-item"><a class="page-cust" id="next" onclick="gonext()">Next</a></li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+  <!--       <div class="row dataAnggota" nama="Rezky Alamsyah" NRP="05111540000109">
+          <div class="container col align-items-center">
+            <div class="row align-items-center my-lg-3">
+              <div class=" white col-lg-10 bg-secondary rectangle">
+                <pre> Nama  : Rezky Alamsyah<br/></pre>
+                <pre> NRP   : 05111540000109<br/></pre>
+                <pre> No.HP : 085718246369<br/></pre>
+              </div>
+              <div class="col-lg-2 justify-content-center align-items-center">
+                <button class=" btn btn-info my-2" data-toggle="modal" data-target="#editAnggota"><span class="oi oi-pencil"></span></button>
+                <button class=" btn btn-danger my-2" data-toggle="modal" data-target="#deleteAnggota"><span class="oi oi-circle-x"></span></button>
+                <button class="white btn btn-warning my-2" data-toggle="modal" data-target="#resetAnggota">Reset</button><br>
+                <button class="white btn btn-info my-2" data-toggle="modal" data-target="#resetAnggota"><span class="oi oi-lock-locked"></span></button>
+              </div>
+            </div>
+            <hr class="hr-small">
+          </div>  
+        </div>
+        <div class="row dataAnggota" nama="Prana Cahya" NRP="05111540000103">
+          <div class="container col align-items-center">
+            <div class="row align-items-center my-lg-3">
+              <div class=" white col-lg-10 bg-secondary rectangle">
+                <pre> Nama  : Prana Cahya<br/></pre>
+                <pre> NRP   : 05111540000103<br/></pre>
+                <pre> No.HP : 085718246369<br/></pre>
+              </div>
+              <div class="col-lg-2 justify-content-center align-items-center">
+                <button class=" btn btn-info my-2" data-toggle="modal" data-target="#editAnggota"><span class="oi oi-pencil"></span></button>
+                <button class=" btn btn-danger my-2" data-toggle="modal" data-target="#deleteAnggota"><span class="oi oi-circle-x"></span></button>
+                <button class="white btn btn-warning my-2" data-toggle="modal" data-target="#resetAnggota">Reset</button><br>
+                <button class="white btn btn-info my-2" data-toggle="modal" data-target="#resetAnggota"><span class="oi oi-lock-locked"></span></button>
+              </div>
+            </div>
+            <hr class="hr-small">
+          </div>  
+        </div>
+        <div class="row dataAnggota" nama="Iqbal Mabruri" NRP="05111540000120">
+          <div class="container col align-items-center">
+            <div class="row align-items-center my-lg-3">
+              <div class=" white col-lg-10 bg-secondary rectangle">
+                <pre> Nama  : Iqbal Mabruri<br/></pre>
+                <pre> NRP   : 05111540000120<br/></pre>
+                <pre> No.HP : 085718246369<br/></pre>
+              </div>
+              <div class="col-lg-2 justify-content-center align-items-center">
+                <button class=" btn btn-info my-2" data-toggle="modal" data-target="#editAnggota"><span class="oi oi-pencil"></span></button>
+                <button class=" btn btn-danger my-2" data-toggle="modal" data-target="#deleteAnggota"><span class="oi oi-circle-x"></span></button>
+                <button class="white btn btn-warning my-2" data-toggle="modal" data-target="#resetAnggota">Reset</button><br>
+                <button class="white btn btn-info my-2" data-toggle="modal" data-target="#resetAnggota"><span class="oi oi-lock-locked"></span></button>
+              </div>
+            </div>
+            <hr class="hr-small">
+          </div>  
+        </div> -->    
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="anggotascript.js"></script>
+  </body>
+</html>

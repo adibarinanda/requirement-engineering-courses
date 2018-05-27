@@ -1,0 +1,442 @@
+.box-overflow{
+	width: auto;
+	border-style: solid;
+	overflow: auto;
+	border-color: black;
+	min-height: 150px;
+	height: 600px;
+}
+
+.box-overflow-item{
+	padding: 20px;
+	width: auto;
+	margin: 0px;
+	border-bottom: 5px solid;
+	border-color: black;
+	align-self: center;
+	height: 170px;
+}
+
+.box-overflow-img{
+	border: 1px solid;
+	border-color: black;
+	float: left;
+}
+
+.box-overflow-content{
+	min-width: 200px;
+	align-self: center;
+}
+
+.box-overflow-button{
+	float: right;
+	margin-bottom: 25px;	
+}
+
+.not-arrow .dropdown-toggle::after {
+    display:none
+}
+
+
+.notif .dropdown-item:hover{
+	background-color: transparent;
+}
+
+.white {
+	color: white;
+}
+
+.white .nav-link{
+	color: white;
+}
+
+.hidden{
+	display: none;
+}
+
+.table .thead-cust th{
+	background-color: #213159;
+	color: white;
+}
+
+.page-cust{
+	cursor: pointer;
+	position: relative;
+	display: block;
+	padding: .5rem .75rem;
+	margin-left: -1px;
+	line-height: 1.25;
+	color: #213159;
+	background-color: #fff;
+	border: 1px solid #dee2e6;
+}
+
+.page-cust:hover{
+	z-index: 2;
+	color: #213159;
+	text-decoration: none;
+	background-color: #e9ecef;
+	border-color: #dee2e6;
+}
+
+.page-item.active .page-cust {
+    z-index: 1;
+    color: #fff;
+    background-color: #213159;
+    border-color: #213159;
+}
+.lato{
+	font-family: 'Lato', sans-serif;
+}
+
+.hr-small {
+	margin-top: 0.2rem;
+	margin-bottom: 0.2rem;
+}
+
+.imagestandart {
+	height: 100%; 
+	width: 100%;
+}
+
+.barangs{
+	text-align: center;
+}
+
+.searchBg{
+	background-image: url("Picture/bgsearch.jpg");
+}
+
+body{
+/*	background-image: url("Picture/Perpustakaan.jpg"); */
+/*	opacity: 0.98;*/
+}
+
+pre{
+	margin-bottom: 2px;
+	font-size: 20px;
+	color: white;
+}
+
+.color1{
+	color: #213159;
+}
+
+.color2{
+	color: #3d6089;
+}
+
+.color3{
+	color: #f0464c;
+}
+
+.color4{
+	color: #e7e7e7;
+}
+
+.bgcolor1{
+	background-color: #213159;
+}
+
+.bgcolor2{
+	background-color: #3d6089;
+}
+
+.bgcolor3{
+	background-color: #f0464c;
+}
+
+.bgcolor4{
+	background-color: #e7e7e7;
+}
+
+.bgwhite{
+	background-color: white;
+}
+
+.full{
+	width: 100%;
+}
+
+@media only screen and (min-width: 100px) {
+	.hr-small {
+		margin-top: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
+	.imageresponse{
+		height: auto;
+		width: 15%;
+	}
+	.barangskecil{
+		font-size: 10px;
+		text-align: center;
+	}
+	.mid-sm{
+		text-align: center;
+	}
+	.image-sm{
+		text-align: center;
+	}
+}
+
+.page-item.disabled .page-cust {
+    color: #6c757d;
+    pointer-events: none;
+    cursor: auto;
+    background-color: #fff;
+    border-color: #dee2e6;
+}
+
+@media only screen and (min-width: 1000px){
+	.imageresponse{
+		height: 130px;
+		width: 150px;
+	}
+	.mid-sm{
+		text-align: left;
+		vertical-align: middle;
+	}
+	.barangskecil{
+		font-size: 24px;
+	}
+}
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400);
+body {
+  background-color:#fff;
+  -webkit-font-smoothing: antialiased;
+  font: normal 14px Roboto,arial,sans-serif;
+  height: 100%;
+}
+
+html{
+	height: 100%;
+}
+
+.container_login {
+    padding: 25px;
+}
+
+.form-login {
+    background-color: #EDEDED;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+}
+
+h4 { 
+ border:0 solid #fff; 
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ text-align: center;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.wrapper {
+    text-align: center;
+}
+
+.body_login{
+	height: auto;
+	background-image: url("Picture/bgsearch.jpg");
+}
+
+.rectangle{
+	border-radius: 10px;
+	height: 16vh;
+	padding-top: 10px;
+	padding-left: 30px; 
+	font: normal 24px Roboto,arial,sans-serif;
+	opacity: 0.8;
+}
+.rectange-button{
+	border-radius: 40px;
+}
+
+.nama-barang{
+	size:"50";
+}
+
+.body-login{
+    background-color: #cccccc;
+    background-image: linear-gradient(blue, white);
+}
+
+.column {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+    opacity: 0.8; 
+    cursor: pointer; 
+}
+
+.column img:hover {
+    opacity: 1;
+}
+
+.vl {
+    border-left: 2px solid black;
+    height: auto;
+}
+
+img {
+    border: 3px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+    border-color: rgb(0,0,0);
+    transition: transform .2s;
+}
+
+img:hover{
+    transform: scale(1.5);
+    opacity: 1; 
+}
+
+#page2{
+	display: none;
+}
+
+#peminjam1{
+	margin-left: 250px;
+	padding: 10px;
+	opacity: 0;
+	z-index: 10;
+	position: absolute;
+	height: 200px;
+	width: 550px;
+	border-radius: 10px;
+}
+
+#peminjam2{
+	margin-left: 250px;
+	padding: 10px;
+	opacity: 0;
+	z-index: 10;
+	position: absolute;
+	height: 200px;
+	width: 550px;
+	border-radius: 10px;
+}
+
+#peminjam3{
+	margin-left: 250px;
+	padding: 10px;
+	opacity: 0;
+	z-index: 10;
+	position: absolute;
+	height: 200px;
+	width: 550px;
+	border-radius: 10px;
+}
+
+#peminjam4{
+	margin-left: 250px;
+	padding: 10px;
+	opacity: 0;
+	z-index: 10;
+	position: absolute;
+	height: 200px;
+	width: 550px;
+	border-radius: 10px;
+}
+
+#peminjam5{
+	margin-left: 250px;
+	padding: 10px;
+	opacity: 0;
+	z-index: 10;
+	position: absolute;
+	height: 200px;
+	width: 550px;
+	border-radius: 10px;
+}
+
+p{
+	text-align: center;
+	font-weight: bold;
+	font-size: 14px;
+}
+td, th, tr{
+	border: 1px solid black;
+	text-align: center;
+	overflow-y:auto;
+}
+
+.scroll{
+    overflow-y:scroll;
+    height:100px;
+    width: 200px; 
+}
+
+#table-barang{
+	height: 120px;
+	padding-top: 8px; 
+	padding-bottom: 16px; 
+	width: 100%;
+	vertical-align:top;
+	border: 1px solid black;
+}
+
+#table-peminjam{
+	height: 10px;
+}
+
+
+.ion-android-arrow-dropleft-circle{
+	color: black;
+}
+
+.ion-android-arrow-dropright-circle{
+	color: black;
+}
+
+#newpage{
+	height: 150px;
+	width: 200px;
+	z-index: 3;
+	position: absolute;
+	padding-top: 50px;
+	opacity: 0;
+}
+
+span{
+	cursor: pointer;
+}
+
+
+.gambarnotif{
+	width: 80px;
+	height: 80px;
+	text-align: center;
+}
+
+.gambarnotif1{
+	width: 80px;
+	height: 80px;
+	text-align: center;
+}
+
+meter {
+  width: 50%;
+  height: 1em;
+  padding-top: 10px;
+}
+
+
+meter[value="1"]::-webkit-meter-optimum-value { background: red; }
+meter[value="2"]::-webkit-meter-optimum-value { background: yellow; }
+meter[value="3"]::-webkit-meter-optimum-value { background: orange; }
+meter[value="4"]::-webkit-meter-optimum-value { background: green; }

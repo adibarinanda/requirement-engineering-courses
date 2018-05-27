@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.2.0/zxcvbn.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+    <link href="ionicons-2.0.1/css/ionicons.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      });
+    </script>
+    <title>SI HMTC</title>
+    <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+    </script>
+  </head>
+  <body class="body_login">
+     <div class="modal fade" id="gantipass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" style="cursor:pointer;" id="exampleModalLabel">Ganti Password</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div><p>SELAMAT DATANG USER BARU!<br><br>Silahkan mengganti password default ke password milik anda sendiri<p></div>
+            <form class="needs-validation" action="peminjam.html">
+              <div class="form-group">
+                <input type="password" class="form-control" id="passlama" aria-describedby="NamaHelp" placeholder="Masukkan Password Baru" required>
+                <div class="invalid-feedback">
+                  Form Password Baru tidak boleh kosong!
+                </div>
+              </div>
+              <div>
+              
+              </div>
+              <div class="form-group">
+                <input type="password" class="form-control" id="passulang" oninput="check(this)" aria-describedby="AngkatanHelp" placeholder="Ulangi Password Baru" required>
+                <div class="invalid-feedback">
+                  Form Ulangi password tidak boleh kosong
+                </div>
+              </div>
+               <div class="form-group">
+                Tingkat kerumitan Password :
+                <meter value="0" max="4" id="password-strength-meter"></meter>
+                <p style="padding-left: 130px" id="password-strength-text"></p>
+              </div>
+              <script language='javascript' type='text/javascript'>
+                  function check(input) {
+                      console.log('run');
+                      if (input.value != document.getElementById('passlama').value) {
+                        input.setCustomValidity('Password tidak cocok');
+                      }else if(input.validity.valueMissing){
+                        input.setCustomValidity('Field tidak boleh kosong');  
+                          // input is valid -- reset the error message
+                      }else{
+                        input.setCustomValidity('');
+                      }
+                  }
+              </script>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container container_login" style="margin-top : 10%">
+      <div class="row">
+         <div class="col-md-4"></div>
+         <div class="col-md-offset-4 col-md-4">
+            <form>
+             <div class="form-login">
+                <h4>SI Peminjaman Inventaris HMTC</h4>
+                <input type="text" id="userName" class="form-control input-sm chat-input" placeholder="username" required />
+                </br>
+                <input type="password" id="userPassword" class="form-control input-sm chat-input" placeholder="password" required />
+                </br>
+                <div class="container">
+                  <div class="row justify-content-between">
+                    <div>
+                      <a style="cursor: default;" href="#" data-toggle="tooltip" data-placement="bottom" title="Silahkan menghubungi sekertaris umum untuk mendapatkan username dan password">Tidak punya akun?</a>
+                      <br>
+                      <a style="cursor: default;" href="#" data-toggle="tooltip" data-placement="bottom" title="Silahkan menghubungi sekertaris umum untuk mereset password">Lupa password?</a> 
+                    </div>
+                    <span class="group-btn">   
+                      <button onclick="return validateLogin()" id="execbutton" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></button>
+                    </span>
+                  </div>
+                </div>
+             </div>
+            </form>
+         </div>
+         <div class="col-md-4"></div>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
