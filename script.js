@@ -588,7 +588,7 @@ function sortTableAnggota() {
   }
 }
 
-function editdata(data, form){
+function editdata(data, form,close){
     var data = document.getElementById(data);
     var form = document.getElementById(form);
     
@@ -598,6 +598,7 @@ function editdata(data, form){
       data.children[i].innerHTML = form.children[i].children[1].value;
     }
     alert("Data berhasil diedit!");
+    eventFire(document.getElementById(close),'click');
     return false;
 }
 

@@ -402,11 +402,12 @@ td, th, tr{
 }
 
 
-.ion-android-arrow-dropleft-circle{
+
+.ion-android-arrow-dropup-circle{
 	color: black;
 }
 
-.ion-android-arrow-dropright-circle{
+.ion-android-arrow-dropdown-circle{
 	color: black;
 }
 
@@ -444,6 +445,6 @@ meter {
 
 
 meter[value="1"]::-webkit-meter-optimum-value { background: red; }
-meter[value="2"]::-webkit-meter-optimum-value { background: yellow; }
-meter[value="3"]::-webkit-meter-optimum-value { background: orange; }
+meter[value="2"]::-webkit-meter-optimum-value { background: orange; }
+meter[value="3"]::-webkit-meter-optimum-value { background: yellow; }
 meter[value="4"]::-webkit-meter-optimum-value { background: green; }
